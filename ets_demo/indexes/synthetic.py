@@ -10,8 +10,6 @@ __date__ = "2018/10/25"
 __license__ = " GPLv3"
 __version__ = "0.0.1"
 
-from openpyxl import load_workbook
-
 
 def underlying_security(prev_price, curr_price):
     """
@@ -50,20 +48,3 @@ def calculate_index(weights, prev_prices, curr_prices, previous_index):
     index_on_date_t = weighted_underlying_security_index(weights, prev_prices, curr_prices)
     current_index = previous_index * (1 + index_on_date_t)
     return current_index
-
-
-def read_data():
-    wb = load_workbook(filename='dummy/Data.xlsx', read_only=True)
-    wsheet = wb.active
-
-    weights = wsheet["B2:Z2"]
-    for row in weights:
-        print([cell.value for cell in row])
-
-    wsheet = wsheet["B2:OK3"]
-    for row in wsheet:
-        a = [cell.value for cell in row]
-
-
-if __name__ == '__main__':
-    read_data()

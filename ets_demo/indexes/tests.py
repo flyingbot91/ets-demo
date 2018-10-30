@@ -11,7 +11,7 @@ __license__ = " GPLv3"
 __version__ = "0.0.1"
 
 from unittest import TestCase
-from synthetic_index.indexes import *
+from indexes.synthetic import *
 
 
 class SyntheticIndexTestCase(TestCase):
