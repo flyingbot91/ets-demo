@@ -7,12 +7,8 @@ Synthetic indexes calculation
 __author__ = "flyingbot91"
 __copyright__ = "Copyright 2018"
 __date__ = "2018/10/25"
-__credits__ = ["flyingbot91"]
 __license__ = " GPLv3"
 __version__ = "0.0.1"
-__maintainer__ = "flyingbot91"
-__email__ = "flyingbot91@gmx.com"
-__status__ = "Development"
 
 from openpyxl import load_workbook
 
@@ -30,7 +26,7 @@ def underlying_security(prev_price, curr_price):
 
 def weighted_underlying_security_index(weights, prev_prices, curr_prices):
     """
-    Calculate the total the weighted sum for underlying security indexes.
+    Calculate the total weighted sum for underlying security indexes.
     :param weights: (list) Weights corresponding to the underlying security indexes
     :param prev_prices: (list) Underlying security indexes on date 't-1' (previous)
     :param curr_prices: (list) Underlying security indexes on date 't' (current)
