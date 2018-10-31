@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.db import models
 
 
 class UnderlyingSecurityIngestion(models.Model):
-    created_on = models.DateTimeField(
+    created = models.DateTimeField(
         auto_now=True,
         help_text='Date and time of ingestion'
     )
@@ -11,15 +12,17 @@ class UnderlyingSecurityIngestion(models.Model):
         help_text='Synthetic index date'
     )
     synthetic_index = models.FloatField(
+        blank=True,
+        null=True,
         help_text='Synthetic index on a specific date'
     )
-    calculated_on = models.DateTimeField(
-        auto_now=True,
+    calculated = models.DateTimeField(
+        null=True,
         help_text='Date and time of synthetic index calculation'
     )
 
     def __str__(self):
-        return '%s_%s' % (self.created_on, self.date)
+        return '%s_%s' % (self.created, self.date)
 
 
 class UnderlyingSecurityIndex(models.Model):
@@ -31,7 +34,7 @@ class UnderlyingSecurityIndex(models.Model):
     )
 
     def __str__(self):
-        return '%s: %s' % (self.id, self.weight)
+        return '%s: %s' % (self.index_id, self.weight)
 
 
 class UnderlyingSecurityValue(models.Model):
